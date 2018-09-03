@@ -1,2 +1,2 @@
 # sorted-json
-a rust json serializer that sorts keys
+a rust json pretty printer that sorts keys (Structs or HashMap)
