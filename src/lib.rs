@@ -222,13 +222,11 @@ static ESCAPE: [u8; 256] = [
 ];
 
 /// Represents a character escape code in a type-safe manner.
-pub enum CharEscape {
+enum CharEscape {
     /// An escaped quote `"`
     Quote,
     /// An escaped reverse solidus `\`
     ReverseSolidus,
-    /// An escaped solidus `/`
-    Solidus,
     /// An escaped backspace character (usually escaped as `\b`)
     Backspace,
     /// An escaped form feed character (usually escaped as `\f`)
@@ -269,7 +267,6 @@ fn write_char_escape(char_escape: CharEscape) -> String {
     match char_escape {
         Quote => out.extend(b"\\\""),
         ReverseSolidus => out.extend(b"\\\\"),
-        Solidus => out.extend(b"\\/"),
         Backspace => out.extend(b"\\b"),
         FormFeed => out.extend(b"\\f"),
         LineFeed => out.extend(b"\\n"),
